@@ -32,8 +32,8 @@ const Botoes = ({ digitos, setDigitos }) => {
     }
 
     const resultado = () => {
-
-        if (digitos.split('').filter((elemento) => elemento === "+" || elemento === "-" || elemento === "/" || elemento === "x").length === 1) {
+        const operacoes = digitos.split('').filter((elemento) => elemento === "+" || elemento === "-" || elemento === "/" || elemento === "x");
+        if (operacoes.length === 1) {
             if (digitos.includes("+")) {
                 const [x, y] = digitos.split("+");
                 return Number(x) + Number(y);
@@ -50,10 +50,7 @@ const Botoes = ({ digitos, setDigitos }) => {
                 const [x, y] = digitos.split("x");
                 return Number(x) * Number(y);
             }
-        }
-
-        if (digitos.split('').filter((elemento) => elemento === "+" || elemento === "-" || elemento === "/" || elemento === "x").length === 2) {
-            const operacoes = digitos.split('').filter((elemento) => elemento === "+" || elemento === "-" || elemento === "/" || elemento === "x")
+        } else if (operacoes.length === 2) {
             if ((operacoes[0] === "-" || operacoes[0] === "+") && (operacoes[1] === "x" || operacoes[1] === "/")) {
                 if (operacoes[0] === "-") {
                     const [primeiro, operacao] = digitos.split("-")
