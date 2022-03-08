@@ -7784,6 +7784,11 @@ stackframe@^1.1.1:
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
 
+string-calculator@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/string-calculator/-/string-calculator-1.0.1.tgz#e2e1767d13c8591574bdfd5776ce5f1644c8ec55"
+  integrity sha512-xBeyYvwGyUdtlRv+EFrxzh17TwXt2gWDIYKx8/jEB0rDVszp6ZeZNx9cw4BFADV9gMbgkfRjgM6QhQc4gvG8ZA==
+
 string-length@^4.0.1:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/string-length/-/string-length-4.0.2.tgz#a8a8dc7bd5c1a82b9b3c8b87e125f66871b6e57a"
