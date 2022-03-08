@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const EstiloBotao = styled.div`
     border: none;
     background-color: #FAEFD5;
-    font-size: 24px;
+    font-size: 26px;
     color: black;
     font-weight: bold; 
     cursor: pointer;
