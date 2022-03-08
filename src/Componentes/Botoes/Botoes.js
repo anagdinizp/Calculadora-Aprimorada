@@ -32,72 +32,93 @@ const Botoes = ({ digitos, setDigitos }) => {
     }
 
     const resultado = () => {
-        const operacoes = digitos.split('').filter((elemento) => elemento === "+" || elemento === "-" || elemento === "/" || elemento === "x")
 
-        if ((operacoes[0] === "-" || operacoes[0] === "+") && (operacoes[1] === "x" || operacoes[1] === "/")) {
-            if (operacoes[0] === "-") {
-                const [primeiro, operacao] = digitos.split("-")
-                if (operacoes[1] === "x") {
-                    const [segundo, terceiro] = operacao.split("x")
-                    return Number(primeiro) - Number(segundo) * Number(terceiro)
-                }
+        if (digitos.split('').filter((elemento) => elemento === "+" || elemento === "-" || elemento === "/" || elemento === "x").length === 1) {
+            if (digitos.includes("+")) {
+                const [x, y] = digitos.split("+");
+                return Number(x) + Number(y);
             }
-
-            if (operacoes[0] === "-") {
-                const [primeiro, operacao] = digitos.split("-")
-                if (operacoes[1] === "/") {
-                    const [segundo, terceiro] = operacao.split("/")
-                    return Number(primeiro) - Number(segundo) / Number(terceiro)
-                }
+            if (digitos.includes("-")) {
+                const [x, y] = digitos.split("-");
+                return Number(x) - Number(y);
             }
-
-            if (operacoes[0] === "+") {
-                const [primeiro, operacao] = digitos.split("+")
-                if (operacoes[1] === "x") {
-                    const [segundo, terceiro] = operacao.split("x")
-                    return Number(primeiro) + Number(segundo) * Number(terceiro)
-                }
+            if (digitos.includes("/")) {
+                const [x, y] = digitos.split("/");
+                return Number(x) / Number(y);
             }
-
-            if (operacoes[0] === "+") {
-                const [primeiro, operacao] = digitos.split("+")
-                if (operacoes[1] === "/") {
-                    const [segundo, terceiro] = operacao.split("/")
-                    return Number(primeiro) + Number(segundo) / Number(terceiro)
-                }
+            if (digitos.includes("x")) {
+                const [x, y] = digitos.split("x");
+                return Number(x) * Number(y);
             }
         }
 
-        else if ((operacoes[0] === "x" || operacoes[0] === "/") && (operacoes[1] === "-" || operacoes[1] === "+")) {
-            if (operacoes[0] === "x") {
-                const [primeiro, operacao] = digitos.split("x")
-                if (operacoes[1] === "-") {
-                    const [segundo, terceiro] = operacao.split("-")
-                    return Number(primeiro) * Number(segundo) - Number(terceiro)
+        if (digitos.split('').filter((elemento) => elemento === "+" || elemento === "-" || elemento === "/" || elemento === "x").length === 2) {
+            const operacoes = digitos.split('').filter((elemento) => elemento === "+" || elemento === "-" || elemento === "/" || elemento === "x")
+            if ((operacoes[0] === "-" || operacoes[0] === "+") && (operacoes[1] === "x" || operacoes[1] === "/")) {
+                if (operacoes[0] === "-") {
+                    const [primeiro, operacao] = digitos.split("-")
+                    if (operacoes[1] === "x") {
+                        const [segundo, terceiro] = operacao.split("x")
+                        return Number(primeiro) - Number(segundo) * Number(terceiro)
+                    }
+                }
+
+                if (operacoes[0] === "-") {
+                    const [primeiro, operacao] = digitos.split("-")
+                    if (operacoes[1] === "/") {
+                        const [segundo, terceiro] = operacao.split("/")
+                        return Number(primeiro) - Number(segundo) / Number(terceiro)
+                    }
+                }
+
+                if (operacoes[0] === "+") {
+                    const [primeiro, operacao] = digitos.split("+")
+                    if (operacoes[1] === "x") {
+                        const [segundo, terceiro] = operacao.split("x")
+                        return Number(primeiro) + Number(segundo) * Number(terceiro)
+                    }
+                }
+
+                if (operacoes[0] === "+") {
+                    const [primeiro, operacao] = digitos.split("+")
+                    if (operacoes[1] === "/") {
+                        const [segundo, terceiro] = operacao.split("/")
+                        return Number(primeiro) + Number(segundo) / Number(terceiro)
+                    }
                 }
             }
 
-            if (operacoes[0] === "x") {
-                const [primeiro, operacao] = digitos.split("x")
-                if (operacoes[1] === "+") {
-                    const [segundo, terceiro] = operacao.split("+")
-                    return Number(primeiro) * Number(segundo) + Number(terceiro)
+            else if ((operacoes[0] === "x" || operacoes[0] === "/") && (operacoes[1] === "-" || operacoes[1] === "+")) {
+                if (operacoes[0] === "x") {
+                    const [primeiro, operacao] = digitos.split("x")
+                    if (operacoes[1] === "-") {
+                        const [segundo, terceiro] = operacao.split("-")
+                        return Number(primeiro) * Number(segundo) - Number(terceiro)
+                    }
                 }
-            }
 
-            if (operacoes[0] === "/") {
-                const [primeiro, operacao] = digitos.split("/")
-                if (operacoes[1] === "-") {
-                    const [segundo, terceiro] = operacao.split("-")
-                    return Number(primeiro) / Number(segundo) - Number(terceiro)
+                if (operacoes[0] === "x") {
+                    const [primeiro, operacao] = digitos.split("x")
+                    if (operacoes[1] === "+") {
+                        const [segundo, terceiro] = operacao.split("+")
+                        return Number(primeiro) * Number(segundo) + Number(terceiro)
+                    }
                 }
-            }
 
-            if (operacoes[0] === "/") {
-                const [primeiro, operacao] = digitos.split("/")
-                if (operacoes[1] === "+") {
-                    const [segundo, terceiro] = operacao.split("+")
-                    return Number(primeiro) / Number(segundo) + Number(terceiro)
+                if (operacoes[0] === "/") {
+                    const [primeiro, operacao] = digitos.split("/")
+                    if (operacoes[1] === "-") {
+                        const [segundo, terceiro] = operacao.split("-")
+                        return Number(primeiro) / Number(segundo) - Number(terceiro)
+                    }
+                }
+
+                if (operacoes[0] === "/") {
+                    const [primeiro, operacao] = digitos.split("/")
+                    if (operacoes[1] === "+") {
+                        const [segundo, terceiro] = operacao.split("+")
+                        return Number(primeiro) / Number(segundo) + Number(terceiro)
+                    }
                 }
             }
         }
